@@ -1,0 +1,30 @@
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\bin\Debug\HMApp.exe.config
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\bin\Debug\HMApp.exe
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\bin\Debug\HMApp.pdb
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\bin\Debug\HMApp.xml
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\obj\Debug\HMApp.vbprojAssemblyReference.cache
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\obj\Debug\HMApp.AppInterface.resources
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\obj\Debug\HMApp.Resources.resources
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\obj\Debug\HMApp.vbproj.GenerateResource.cache
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\obj\Debug\HMApp.vbproj.CoreCompileInputs.cache
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\obj\Debug\HMApp.vbproj.CopyComplete
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\obj\Debug\HMApp.exe
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\obj\Debug\HMApp.xml
+C:\Users\MPTC-RONALD-MANAPAT\source\repos\HMApp\HMApp\obj\Debug\HMApp.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\bin\Debug\HMApp.exe.config
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\obj\Debug\HMApp.exe
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\obj\Debug\HMApp.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\obj\Debug\HMApp.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\obj\Debug\HMApp.AppInterface.resources
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\obj\Debug\HMApp.Resources.resources
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\obj\Debug\HMApp.vbproj.GenerateResource.Cache
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\bin\Debug\HMApp.exe
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\bin\Debug\HMApp.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\bin\Debug\HMApp.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\bin\Debug\Newtonsoft.Json.dll
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\bin\Debug\Newtonsoft.Json.xml
+C:\Users\user\Documents\Visual Studio 2013\Projects\HMApp\HMApp\obj\Debug\HMApp.vbprojResolveAssemblyReference.cache
