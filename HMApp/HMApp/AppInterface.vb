@@ -83,6 +83,7 @@ Public Class AppInterface
                                    final(9).Replace(",", "").Remove(0, 2),
                                    final(10).Replace(",", "").Remove(0, 2),
                                    Math.Round(distance(14.187671, 121.125084, latlong(0), latlong(1), "K"), 2))
+                rec_table.AcceptChanges()
 
                 'TextBox1.Text += "Entry No.:" & i & " " & final(3).Remove(0, 3) + final(4).Remove(0, 3) + final(5).Remove(0, 3) + final(6).Remove(0, 3) + final(7).Remove(0, 3) + final(8).Remove(0, 3) + vbNewLine
                 'TextBox1.Text = TextBox1.Text.Replace("" & ControlChars.Quote & "", "")
@@ -90,7 +91,7 @@ Public Class AppInterface
 
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            ' MsgBox(ex.ToString)
         End Try
     End Sub
 
@@ -152,6 +153,11 @@ Public Class AppInterface
                 final = Split(txt2(0).Replace("field", "").Replace("" & ControlChars.Quote & "", "").Replace(" ", ""), vbNewLine)
 
 
+                Dim latlong As String()
+                latlong = Split(final(9).Replace(",", "").Remove(0, 2), "/")
+
+
+
                 rec_table.Rows.Add(dateTime,
                                    final(3).Replace(",", "").Remove(0, 2),
                                    final(4).Replace(",", "").Remove(0, 2),
@@ -161,7 +167,26 @@ Public Class AppInterface
                                    final(8).Replace(",", "").Remove(0, 2),
                                    final(9).Replace(",", "").Remove(0, 2),
                                    final(10).Replace(",", "").Remove(0, 2),
-                                   Math.Round(distance(14.187671, 121.125084, final(9).Replace(",", "").Remove(0, 2), final(10).Replace(",", "").Remove(0, 2), "K"), 2))
+                                   Math.Round(distance(14.187671, 121.125084, latlong(0), latlong(1), "K"), 2))
+                rec_table.AcceptChanges()
+                Me.Invoke(Sub()
+                              Try
+                                  DataGridView1.DataSource = Nothing
+                                  DataGridView1.Update()
+                                  DataGridView1.Refresh()
+
+                                  DataGridView1.DataSource = rec_table
+                                  DataGridView1.Update()
+                                  DataGridView1.Refresh()
+                                  Label2.Text = Label2.Text + 1
+                                  DataGridView1.Sort(DataGridView1.Columns(0), System.ComponentModel.ListSortDirection.Descending)
+                                  DataGridView1.Columns(0).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+                              Catch ex As Exception
+
+                              End Try
+                          End Sub)
+
 
                 'TextBox1.Text += "Entry No.:" & i & " " & final(3).Remove(0, 3) + final(4).Remove(0, 3) + final(5).Remove(0, 3) + final(6).Remove(0, 3) + final(7).Remove(0, 3) + final(8).Remove(0, 3) + vbNewLine
                 'TextBox1.Text = TextBox1.Text.Replace("" & ControlChars.Quote & "", "")
@@ -169,9 +194,9 @@ nextt:
 
             Next
 
-
+            bgw_checker.ReportProgress(10)
         Catch ex As Exception
-            'MsgBox(ex.ToString)
+            ' MsgBox(ex.ToString)
         End Try
 
     End Sub
@@ -182,8 +207,10 @@ nextt:
     End Sub
 
     Private Sub bgw_checker_RunWorkerCompleted(sender As Object, e As System.ComponentModel.RunWorkerCompletedEventArgs) Handles bgw_checker.RunWorkerCompleted
+        DataGridView1.DataSource = rec_table
 
-        Label1.Text = Label1.Text + 1
+        DataGridView1.Update()
+        'Label1.Text = Label1.Text + 1
         bgw_checker.RunWorkerAsync()
     End Sub
 
@@ -193,10 +220,10 @@ nextt:
         'dg_records.Update()
 
         'DataGridView1.DataSource = Nothing
-        DataGridView1.DataSource = rec_table
+        'DataGridView1.DataSource = rec_table
 
-        DataGridView1.Update()
-        DataGridView1.Refresh()
+        'DataGridView1.Update()
+        'DataGridView1.Refresh()
         Label2.Text = Label2.Text + 1
         DataGridView1.Sort(DataGridView1.Columns(0), System.ComponentModel.ListSortDirection.Descending)
     End Sub
