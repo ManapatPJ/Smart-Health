@@ -36,13 +36,19 @@ Partial Class AppInterface
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.tbl_loading = New System.Windows.Forms.TableLayoutPanel()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.bgw_alarm = New System.ComponentModel.BackgroundWorker()
+        Me.lbl_RequestCode = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.lbl_ResponseTime = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.tbl_loading.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'bgw_checker
@@ -60,15 +66,15 @@ Partial Class AppInterface
         Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(12, 9)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(502, 38)
+        Me.Label4.Size = New System.Drawing.Size(454, 38)
         Me.Label4.TabIndex = 28
-        Me.Label4.Text = "QualiMed Hospital Emergency Room"
+        Me.Label4.Text = "Global Medical Center of Laguna"
         '
         'Label2
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(540, 25)
+        Me.Label2.Location = New System.Drawing.Point(897, 8)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(16, 17)
@@ -80,7 +86,7 @@ Partial Class AppInterface
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(516, 25)
+        Me.Label1.Location = New System.Drawing.Point(873, 8)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(16, 17)
@@ -124,6 +130,7 @@ Partial Class AppInterface
         Me.DataGridView1.Location = New System.Drawing.Point(13, 65)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(583, 278)
@@ -158,19 +165,6 @@ Partial Class AppInterface
         Me.Label3.Text = "LOADING..."
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Button3
-        '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.BackgroundImage = Global.HMApp.My.Resources.Resources.iconfinder_check_1930264
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Location = New System.Drawing.Point(863, 9)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(50, 50)
-        Me.Button3.TabIndex = 31
-        Me.Button3.UseVisualStyleBackColor = True
-        '
         'Button2
         '
         Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -179,11 +173,12 @@ Partial Class AppInterface
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(919, 8)
+        Me.Button2.Location = New System.Drawing.Point(920, 8)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(50, 50)
         Me.Button2.TabIndex = 30
         Me.Button2.UseVisualStyleBackColor = False
+        Me.Button2.Visible = False
         '
         'DataGridView2
         '
@@ -205,26 +200,98 @@ Partial Class AppInterface
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle4
-        Me.DataGridView2.Location = New System.Drawing.Point(604, 65)
+        Me.DataGridView2.Location = New System.Drawing.Point(604, 108)
         Me.DataGridView2.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
         Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(365, 278)
+        Me.DataGridView2.Size = New System.Drawing.Size(365, 235)
         Me.DataGridView2.TabIndex = 32
         '
         'Label5
         '
-        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
         Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 10.2!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 13.8!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(600, 351)
+        Me.Label5.Location = New System.Drawing.Point(252, 383)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(211, 23)
+        Me.Label5.Size = New System.Drawing.Size(171, 32)
         Me.Label5.TabIndex = 33
-        Me.Label5.Text = "Request Code - Qualimed"
+        Me.Label5.Text = "Request Code:"
+        '
+        'bgw_alarm
+        '
+        Me.bgw_alarm.WorkerSupportsCancellation = True
+        '
+        'lbl_RequestCode
+        '
+        Me.lbl_RequestCode.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.lbl_RequestCode.AutoSize = True
+        Me.lbl_RequestCode.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_RequestCode.Font = New System.Drawing.Font("Segoe UI", 13.8!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_RequestCode.ForeColor = System.Drawing.Color.White
+        Me.lbl_RequestCode.Location = New System.Drawing.Point(429, 383)
+        Me.lbl_RequestCode.Name = "lbl_RequestCode"
+        Me.lbl_RequestCode.Size = New System.Drawing.Size(355, 32)
+        Me.lbl_RequestCode.TabIndex = 34
+        Me.lbl_RequestCode.Text = "GlobalMedicalCenterofLaguna"
+        '
+        'Label6
+        '
+        Me.Label6.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 13.8!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.ForeColor = System.Drawing.Color.White
+        Me.Label6.Location = New System.Drawing.Point(252, 351)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(373, 32)
+        Me.Label6.TabIndex = 35
+        Me.Label6.Text = "Note: Time is +8:00 Server time"
+        '
+        'Button4
+        '
+        Me.Button4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(603, 351)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(366, 42)
+        Me.Button4.TabIndex = 36
+        Me.Button4.Text = "See Response History"
+        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.Visible = False
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
+        Me.TableLayoutPanel1.ColumnCount = 1
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.lbl_ResponseTime, 0, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(604, 64)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(365, 37)
+        Me.TableLayoutPanel1.TabIndex = 37
+        '
+        'lbl_ResponseTime
+        '
+        Me.lbl_ResponseTime.AutoSize = True
+        Me.lbl_ResponseTime.BackColor = System.Drawing.Color.Transparent
+        Me.lbl_ResponseTime.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lbl_ResponseTime.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbl_ResponseTime.ForeColor = System.Drawing.Color.White
+        Me.lbl_ResponseTime.Location = New System.Drawing.Point(4, 1)
+        Me.lbl_ResponseTime.Name = "lbl_ResponseTime"
+        Me.lbl_ResponseTime.Size = New System.Drawing.Size(357, 35)
+        Me.lbl_ResponseTime.TabIndex = 35
+        Me.lbl_ResponseTime.Text = "Emergency Response as of:"
+        Me.lbl_ResponseTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'AppInterface
         '
@@ -232,9 +299,12 @@ Partial Class AppInterface
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.DarkSlateGray
         Me.ClientSize = New System.Drawing.Size(982, 453)
+        Me.Controls.Add(Me.TableLayoutPanel1)
+        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.lbl_RequestCode)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.DataGridView2)
-        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.tbl_loading)
         Me.Controls.Add(Me.Label4)
@@ -247,13 +317,15 @@ Partial Class AppInterface
         Me.MinimumSize = New System.Drawing.Size(1000, 500)
         Me.Name = "AppInterface"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = " Smart Health"
+        Me.Text = " Smart Health - Emergency Response Application"
         Me.TransparencyKey = System.Drawing.Color.Fuchsia
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.tbl_loading.ResumeLayout(False)
         Me.tbl_loading.PerformLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -268,9 +340,14 @@ Partial Class AppInterface
     Friend WithEvents tbl_loading As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents bgw_alarm As System.ComponentModel.BackgroundWorker
+    Friend WithEvents lbl_RequestCode As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents lbl_ResponseTime As System.Windows.Forms.Label
 
     ' Friend WithEvents dg_records As Telerik.WinControls.UI.RadGridView
 End Class
